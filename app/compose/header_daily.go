@@ -2,7 +2,6 @@ package compose
 
 import (
 	"fmt"
-	"math"
 	"strconv"
 	"time"
 
@@ -31,18 +30,17 @@ func HeaderDaily(cfg config.Config, tpls []string) (page.Modules, error) {
 
 		left := header.Items{
 			header.NewIntItem(cfg.Year),
-			header.NewTextItem("Q" + strconv.Itoa(int(math.Ceil(float64(day.Month())/3.)))),
 			header.NewMonthItem(day.Month()),
 			header.NewTextItem("Week " + strconv.Itoa(weekNum)).RefPrefix(prefix),
 			header.NewTimeItem(day).SetLayout("Monday, 2").Ref(),
 		}
 
 		if day.Month() != time.January || day.Day() != 1 {
-			right = append(right, header.NewTimeItem(day.AddDate(0, 0, -1)).SetLayout("Mon, 2"))
+			right = append(right, header.NewTimeItem(day.AddDate(0, 0, -1)).SetLayout("Mon"))
 		}
 
 		if day.Month() != time.December || day.Day() != 31 {
-			right = append(right, header.NewTimeItem(day.AddDate(0, 0, 1)).SetLayout("Mon, 2"))
+			right = append(right, header.NewTimeItem(day.AddDate(0, 0, 1)).SetLayout("Mon"))
 		}
 
 		modules = append(modules, page.Module{
@@ -78,7 +76,6 @@ func HeaderDaily2(cfg config.Config, tpls []string) (page.Modules, error) {
 					header.NewCellItem("Notes").Refer("Notes Index"),
 				},
 				"Months":   MonthsToCellItems(cfg.WeekStart, calendar.NewYearInMonths(cfg.Year).Selected(day).Reverse()),
-				"Quarters": QuartersToCellItems(calendar.NewYearInQuarters(cfg.Year).Reverse()),
 			},
 		})
 

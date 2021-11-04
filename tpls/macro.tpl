@@ -65,3 +65,4 @@
 
 \newcommand{\myTodo}{\myLineHeightButLine$\square$\myLinePlain}
 \newcommand{\myTodoLineGray}{\myLineHeightButLine$\square$\myLineGray}
+\newcommand{\myTodoneLineGray}[1]{\myLineHeightButLine$\square$\hspace{6pt}#1\myLineGray}

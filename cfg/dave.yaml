@@ -41,6 +41,15 @@ pages:
         tpls:
           - daily.tpl
 
+  - name: daily_reflect
+    renderblocks:
+      - funcname: header_daily_reflect
+        tpls:
+          - header.tpl
+      - funcname: daily_reflect
+        tpls:
+          - daily_reflect.tpl
+
   - name: daily_notes
     renderblocks:
       - funcname: header_daily_notes
@@ -48,14 +57,4 @@ pages:
           - header.tpl
       - funcname: daily_notes
         tpls:
-          - daily_notes.tpl
-
-  - name: notes_indexed
-    renderblocks:
-      - funcname: header_notes_indexed
-        tpls:
-          - header.tpl
-      - funcname: notes_indexed
-        tpls:
-          - notes_index.tpl
           - daily_notes.tpl

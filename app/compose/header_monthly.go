@@ -2,8 +2,6 @@ package compose
 
 import (
 	"fmt"
-	"math"
-	"strconv"
 	"time"
 
 	"github.com/kudrykv/latex-yearly-planner/app/components/calendar"
@@ -29,14 +27,12 @@ func HeaderMonthly(cfg config.Config, tpls []string) (page.Modules, error) {
 			right = append(right, header.NewTextItem((month + 1).String()))
 		}
 
-		qrtr := int(math.Ceil(float64(month) / 3.))
 		modules = append(modules, page.Module{
 			Cfg: cfg,
 			Tpl: tpls[0],
 			Body: header.Header{
 				Left: header.Items{
 					header.NewIntItem(cfg.Year),
-					header.NewTextItem("Q" + strconv.Itoa(qrtr)),
 					header.NewMonthItem(month).Ref(),
 				},
 				Right: right,

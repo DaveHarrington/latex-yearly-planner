@@ -7,36 +7,25 @@
 {{- $day6 := index $week 5 -}}
 {{- $day7 := index $week 6 -}}
 
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day1.RefText -}} }{ {{- $day1.Day}} {{$day1.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
+\parbox{\myLenTwoCol}{
+  \myUnderline{
+    \hyperlink{ {{- $day1.RefText -}} }{ {{$day1.Weekday -}} } |
+    \hyperlink{ {{- $day2.RefText -}} }{ {{$day2.Weekday -}} } |
+    \hyperlink{ {{- $day3.RefText -}} }{ {{$day3.Weekday -}} }
+  }
+  \vbox to \dimexpr\textheight-\pagetotal-\myLenLineHeightButLine\relax {%
+    \leaders\hbox to \linewidth{\textcolor{\myColorGray}{\rule{0pt}{\myLenLineHeightButLine}\hrulefill}}\vfil
+  }%
 }%
-\hspace{\myLenTriColSep}%
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day2.RefText -}} }{ {{- $day2.Day}} {{$day2.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}%
-\hspace{\myLenTriColSep}%
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day3.RefText -}} }{ {{- $day3.Day}} {{$day3.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}
-\vfill
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day4.RefText -}} }{ {{- $day4.Day}} {{$day4.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}%
-\hspace{\myLenTriColSep}%
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day5.RefText -}} }{ {{- $day5.Day}} {{$day5.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}%
-\hspace{\myLenTriColSep}%
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day6.RefText -}} }{ {{- $day6.Day}} {{$day6.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}
-\vfill
-\parbox{\myLenTriCol}{%
-    \myUnderline{\hyperlink{ {{- $day7.RefText -}} }{ {{- $day7.Day}} {{$day7.Weekday -}} }}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
-}%
-\hspace{\myLenTriColSep}%
-\parbox{\dimexpr2\myLenTriCol+\myLenTriColSep}{%
-    \myUnderline{Notes\textcolor{white}{g}}\Repeat{\myNumWeeklyLines}{\myLineGrayVskipTop}%
+\hspace{\myLenTwoColSep}%
+\parbox{\myLenTwoCol}{
+  \myUnderline{
+    \hyperlink{ {{- $day4.RefText -}} }{ {{$day4.Weekday -}} } |
+    \hyperlink{ {{- $day5.RefText -}} }{ {{$day5.Weekday -}} }
+  }
+  \vbox to \dimexpr\textheight-\pagetotal-\myLenLineHeightButLine\relax {%
+    \leaders\hbox to \linewidth{\textcolor{\myColorGray}{\rule{0pt}{\myLenLineHeightButLine}\hrulefill}}\vfil
+  }%
 }
 
 \pagebreak

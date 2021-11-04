@@ -35,11 +35,6 @@ func HeaderWeekly(cfg config.Config, tpls []string) (page.Modules, error) {
 			right = append(right, header.NewTextItem("Week "+strconv.Itoa(yearInWeeks[i+1].WeekNumber())))
 		}
 
-		qrtrItems := make([]header.Item, 0, 2)
-		for _, qrtr := range weekly.Quarters(cfg.Year) {
-			qrtrItems = append(qrtrItems, header.NewTextItem("Q"+strconv.Itoa(qrtr)))
-		}
-
 		monthItems := make([]header.Item, 0, 2)
 		for _, month := range weekly.Months(cfg.Year) {
 			monthItems = append(monthItems, header.NewMonthItem(month))
@@ -57,7 +52,6 @@ func HeaderWeekly(cfg config.Config, tpls []string) (page.Modules, error) {
 				Right: right,
 				Left: header.Items{
 					header.NewIntItem(cfg.Year),
-					header.NewItemsGroup(qrtrItems...).Delim(" / "),
 					header.NewItemsGroup(monthItems...).Delim(" / "),
 					curr,
 				},
@@ -106,7 +100,6 @@ func HeaderWeekly2(cfg config.Config, tpls []string) (page.Modules, error) {
 					header.NewCellItem("Notes").Refer("Notes Index"),
 				},
 				"Months":   MonthsToCellItems(cfg.WeekStart, calendar.NewYearInMonths(cfg.Year).Selected(day).Reverse()),
-				"Quarters": QuartersToCellItems(calendar.NewYearInQuarters(cfg.Year).Reverse()),
 			},
 		})
 	}

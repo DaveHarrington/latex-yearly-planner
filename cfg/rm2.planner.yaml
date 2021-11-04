@@ -3,8 +3,8 @@ layout:
     arraystretch: 1.5
     quarterlylines: 12
     weeklylines: 11
-    dailytodos: 15
-    dailynotes: 20
+    dailytodos: 4
+    dailynotes: 16
     dailybottomhour: 6
     dailytophour: 23
     dailydiarygoals: 10
@@ -15,9 +15,9 @@ layout:
 
   lengths:
     tabcolsep: 3.5pt
-    linethicknessdefault: .4pt
-    linethicknessthick: .8pt
-    lineheightbutline: \dimexpr5mm-.4pt
+    linethicknessdefault: .5pt
+    linethicknessthick: .9pt
+    lineheightbutline: \dimexpr7mm-.0pt
     twocolsep: 5pt
     tricolsep: 5pt
     monthlycellheight: 55pt
